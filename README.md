@@ -10,24 +10,25 @@ Tested on: macOS 10 (Catalina), Windows 11. (Any platform that supports Python 3
 1.2 Software Dependencies
 All code is written in Python 3.10 and requires the following packages (with version numbers used in our tests):
 Package	Version:
-numpy	1.26.4
-pandas	1.5.3
-matplotlib	3.5.3
-seaborn	0.13.2
-scipy	1.15.3
-scikit-learn	1.5.0
-jupyter	5.5.0
-openpyxl	3.1.2
+numpy	1.26.4,
+pandas	1.5.3,
+matplotlib	3.5.3,
+seaborn	0.13.2,
+scipy	1.15.3,
+scikit-learn	1.5.0,
+jupyter	5.5.0,
+openpyxl	3.1.2.
 
 1.3 Hardware Requirements
 A standard computer with ≥ 32 GB RAM, ≥ 1T SSD hard drive, and ≥ 5 cores is sufficient for all analyses. For large datasets, 64 GB RAM is recommended.
 
 2. Installation Guide
+
 Step 1: Install Python and Jupyter
 If you do not already have Python, we recommend installing the Anaconda Distribution which includes Python, Jupyter Notebook, and most required packages.
 
 Step 2: Install required packages
-Open a terminal (or Anaconda Prompt) and run:
+Open a terminal (or Anaconda Prompt) and run: "pip install numpy pandas matplotlib seaborn scipy scikit-learn jupyter openpyxl".
 
 Step 3: Download the code
 Clone this repository or download the provided file to your local machine.
@@ -36,11 +37,12 @@ Typical install time
 On a normal desktop computer with a broadband internet connection, the entire installation (including dependencies) takes less than 5 minutes.
 
 3. Demo
+
 3.1 Demo data
 A small simulated dataset is included in the demo_data (zip file). These files mimic the structure of real calcium traces and behavioral event logs.
 
 3.2 Instructions to Run on Demo Data
-(1) Launch Jupyter Notebook from the terminal:
+(1) Launch Jupyter Notebook from the terminal.
 (2) Open any of the analysis notebooks (e.g., 2-ONOFF_classification_SocB_Any_session.ipynb).
 (3) Change the file paths at the top of the notebook to point to the demo data folder.
 (4) Run all cells sequentially (Cell → Run All)
