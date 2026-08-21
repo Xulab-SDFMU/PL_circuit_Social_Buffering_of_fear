@@ -1,49 +1,85 @@
 PL Neural Data Analysis Pipeline
-This repository contains a comprehensive analysis pipeline for processing and analyzing neural calcium imaging data from the prelimbic cortex (PL) during SBF behavioral experiments. The workflow covers data preprocessing, neural ensemble classification, activity quantification, overlap analysis, and visualization.
 
-Code Overview
-1. Data Preprocessing
-1-convert-SocB.ipynb
-Preprocesses raw neural signal trace files by removing columns labeled "rejected" to clean the dataset for subsequent analysis.
+This repository provides a complete analysis pipeline for processing and analyzing neural calcium imaging data from the prelimbic cortex (PL) during behavioral experiments. The workflow includes data cleaning, functional ensemble classification, within- and across-session activity quantification, overlap analysis (observed vs. chance-level), and visualization.
 
-2. Neural Ensemble Classification
-2-ONOFF_classification_SocB_Any_session.ipynb
-Classifies PL neurons into functional ensembles (e.g., "ON") based on the similarity between calcium transient vectors and behavioral event vectors within a given session.
+1. System Requirements
+1.1 Operating Systems 
+Tested on: macOS 10 (Catalina), Windows 11. (Any platform that supports Python 3.x and Jupyter Notebook)
 
-3. Within-Session Activity Quantification
-3-TransientRate_Amplitude_SocB_ON_neurons_within_session.ipynb
-Calculates transient rate and amplitude for a specific ON neural ensemble (identified in one session) during behavioral events occurring in the same session.
+1.2 Software Dependencies
+All code is written in Python 3.10 and requires the following packages (with version numbers used in our tests):
+Package	Version
+numpy	1.26.4
+pandas	1.5.3
+matplotlib	3.5.3
+seaborn	0.13.2
+scipy	1.15.3
+scikit-learn	1.5.0
+jupyter	5.5.0
+openpyxl	3.1.2
 
-4. Across-Session Activity Quantification
-4-TransientRate_Amplitude_SocB_ON_neurons_across_session.ipynb
-Calculates transient rate and amplitude for a specific ON neural ensemble (identified in one session) during behavioral events across all testing sessions, enabling longitudinal comparison.
+1.3 Hardware Requirements
+A standard computer with ≥ 32 GB RAM, ≥ 1T SSD hard drive, and ≥ 5 cores is sufficient for all analyses. For large datasets, 64 GB RAM is recommended.
 
-5. Within-Session Ensemble Overlap
-5-Neuron_overlap_proportion_Allsessions.ipynb
-Computes: (1) the proportion of each neural ensemble within a session.
-     (2) the observed overlap between two neural ensembles in the same session.
-                  (3) the chance-level overlap predicted by random distribution.
+2. Installation Guide
+Step 1: Install Python and Jupyter
+If you do not already have Python, we recommend installing the Anaconda Distribution which includes Python, Jupyter Notebook, and most required packages.
 
-6. Across-Session Ensemble Overlap
-6-Neuron_overlap_Across_sessions-output improved.ipynb
-Computes: (1) The observed overlap between two neural ensembles from different sessions.
-     (2) The corresponding chance-level overlap for cross-session comparisons.
+Step 2: Install required packages
+Open a terminal (or Anaconda Prompt) and run:
 
-7. Behavioral Timeline Visualization
-7-PLOT-behavior event.ipynb
-Generates color-coded timeline plots of behavioral events (e.g., freezing, CS presentation, sniffing) across experimental sessions for visual inspection of temporal patterns.
+Step 3: Download the code
+Clone this repository or download the provided file to your local machine.
 
-8. ROI-Based Neuron Distribution Plotting
-8-PLOT_ON_neuorn_overlap_Across_sessions.ipynb
-Visualizes the spatial distribution of neurons within the region of interest (ROI), with neural ensembles from the same or different sessions labeled in distinct colors.
+Typical install time
+On a normal desktop computer with a broadband internet connection, the entire installation (including dependencies) takes less than 5 minutes.
 
-9. Activity Heatmap and Averaged Traces
-9-PLOT_ON_neuorn_heatmap_and_Trace.ipynb
-Plots the heatmaps of neuronal activity aligned to the onset of a specific behavioral event, and the averaged population traces to visualize temporal dynamics across the ensemble.
+3. Demo
+3.1 Demo data
+A small simulated dataset is included in the demo_data (zip file). These files mimic the structure of real calcium traces and behavioral event logs.
 
-Requirements
-•	Python 3.x
-•	Jupyter Notebook
-•	Standard scientific libraries: numpy, pandas, matplotlib, seaborn, scipy, etc.
+3.2 Instructions to Run on Demo Data
+(1) Launch Jupyter Notebook from the terminal:
+(2) Open any of the analysis notebooks (e.g., 2-ONOFF_classification_SocB_Any_session.ipynb).
+(3) Change the file paths at the top of the notebook to point to the demo data folder.
+(4) Run all cells sequentially (Cell → Run All)
 
+3.3 Expected output
+For each notebook, the expected outputs are:
+Notebook	Expected Output
+1	Cleaned trace CSV (no "rejected" columns) saved in outputs
+2	Ensemble classification labels (ON/OFF) per neuron, saved as XLSX
+3–4	Activity metrics (transient rate, amplitude) per event type, saved as CSV
+5–6	Overlap proportions (observed and chance-level), saved as CSV
+7	Behavioral timeline plot (.png) saved in figures
+8	ROI spatial distribution plot (.png) saved in figures
+9	Heatmap and averaged trace (.png) saved in figures
+All output files are written to the outputs and figures subdirectories.
+
+3.4 Expected Run Time for Demo
+On a computer (Intel i7, 64 GB RAM), running the entire demo pipeline from start to finish takes approximately 60 minutes (most notebooks complete in under 1 minute each; notebook 2 may take about 30-50 minutes to classify neurons; notebook 8 and 9 may take 1-2 minutes for plot generation).
+
+4. Instructions for Use 
+4.1 Data Preparation
+Calcium trace files: CSV files where each column is a neuron’s ΔF/F trace over time (one row per time point). Columns labelled "rejected" are automatically removed.
+Behavioral event files: Excel files (.xlsx) with columns: Event (string), From Second (float), To Second (float).
+4.2 Running the Pipeline on Data
+a. Preprocess trace files using 1-convert-SocB.ipynb to simply specify the input folder and output folder.
+b. Classify neurons into ON/OFF ensembles for each session using 2-ONOFF_classification_SocB_Any _session.ipynb. Set the session ID and the target behavioral event (e.g., 'cs' or 'sniff').
+c. Compute transient rates and amplitudes within‑session (notebook 3) and across‑session (notebook 4) by providing the ensemble label and the session(s) of interest.
+d. Analyze overlaps within‑session (notebook 5) and across‑sessions (notebook 6), the scripts will automatically compute both observed and chance‑level overlaps.
+e. Generate visualizations using notebooks 7–9:
+Notebook 7: plots behavioral timelines.
+Notebook 8: plots maps neuron spatial distributions.
+Notebook 9: produces heatmaps and averaged population traces.
+All scripts contain inline comments and markdown cells explaining each step. Parameter settings (paths, event types, session IDs) are concentrated at one part of each notebook for easy modification.
+
+6. License
+This project is distributed under the MIT License (an OSI-approved license). See the LICENSE file in the repository for full terms.
+
+7. Code Description in Manuscript
+A detailed pseudocode description of the core classification and overlap algorithms is provided in the Methods section of the manuscript (see subsection " Analysis of single cell responses during SBF test").
+
+8. Contact & Support
+For questions or issues, please contact the corresponding author at clamslowly@163.com.
 
