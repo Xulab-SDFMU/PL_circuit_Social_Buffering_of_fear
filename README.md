@@ -51,21 +51,21 @@ A small simulated dataset is included in the demo_data (zip file). These files m
 
 For each notebook, the expected outputs are:
 
-Notebook	     Expected Output
+Notebook    Expected Output
 
-1	Cleaned trace CSV (no "rejected" columns) saved in outputs
+1	    Cleaned trace CSV (no "rejected" columns) saved in outputs
 
-2	Ensemble classification labels (ON/OFF) per neuron, saved as XLSX
+2	    Ensemble classification labels (ON/OFF) per neuron, saved as XLSX
 
-3–4	Activity metrics (transient rate, amplitude) per event type, saved as CSV
+3–4	    Activity metrics (transient rate, amplitude) per event type, saved as CSV
 
-5–6	Overlap proportions (observed and chance-level), saved as CSV
+5–6	    Overlap proportions (observed and chance-level), saved as CSV
 
-7	Behavioral timeline plot (.png) saved in figures
+7	    Behavioral timeline plot (.png) saved in figures
 
-8	ROI spatial distribution plot (.png) saved in figures
+8	    ROI spatial distribution plot (.png) saved in figures
 
-9	Heatmap and averaged trace (.png) saved in figures
+9	    Heatmap and averaged trace (.png) saved in figures
 
 All output files are written to the outputs and figures subdirectories.
 
