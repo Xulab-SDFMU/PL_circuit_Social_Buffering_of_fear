@@ -73,18 +73,26 @@ All output files are written to the outputs and figures subdirectories.
 On a computer (Intel i7, 64 GB RAM), running the entire demo pipeline from start to finish takes approximately 60 minutes (most notebooks complete in under 1 minute each; notebook 2 may take about 30-50 minutes to classify neurons; notebook 8 and 9 may take 1-2 minutes for plot generation).
 
 4. Instructions for Use 
+
 4.1 Data Preparation
 Calcium trace files: CSV files where each column is a neuron’s ΔF/F trace over time (one row per time point). Columns labelled "rejected" are automatically removed.
 Behavioral event files: Excel files (.xlsx) with columns: Event (string), From Second (float), To Second (float).
+
 4.2 Running the Pipeline on Data
+
 a. Preprocess trace files using 1-convert-SocB.ipynb to simply specify the input folder and output folder.
+
 b. Classify neurons into ON/OFF ensembles for each session using 2-ONOFF_classification_SocB_Any _session.ipynb. Set the session ID and the target behavioral event (e.g., 'cs' or 'sniff').
+
 c. Compute transient rates and amplitudes within‑session (notebook 3) and across‑session (notebook 4) by providing the ensemble label and the session(s) of interest.
+
 d. Analyze overlaps within‑session (notebook 5) and across‑sessions (notebook 6), the scripts will automatically compute both observed and chance‑level overlaps.
+
 e. Generate visualizations using notebooks 7–9:
 Notebook 7: plots behavioral timelines.
 Notebook 8: plots maps neuron spatial distributions.
 Notebook 9: produces heatmaps and averaged population traces.
+
 All scripts contain inline comments and markdown cells explaining each step. Parameter settings (paths, event types, session IDs) are concentrated at one part of each notebook for easy modification.
 
 6. License
