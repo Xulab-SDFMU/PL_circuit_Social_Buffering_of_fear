@@ -100,15 +100,15 @@ Notebook 9: produces heatmaps and averaged population traces.
 
 All scripts contain inline comments and markdown cells explaining each step. Parameter settings (paths, event types, session IDs) are concentrated at one part of each notebook for easy modification.
 
-6. License
+5. License
 
 This project is distributed under the MIT License (an OSI-approved license). See the LICENSE file in the repository for full terms.
 
-7. Code Description in Manuscript
+6. Code Description in Manuscript
 
 A detailed pseudocode description of the core classification and overlap algorithms is provided in the Methods section of the manuscript (see subsection " Analysis of single cell responses during SBF test").
 
-8. Contact & Support
+7. Contact & Support
 
 For questions or issues, please contact the corresponding author at clamslowly@163.com.
 
