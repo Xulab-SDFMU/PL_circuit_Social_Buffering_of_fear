@@ -5,9 +5,11 @@ This repository provides a complete analysis pipeline for processing and analyzi
 1. System Requirements
 
 1.1 Operating Systems 
+
 Tested on: macOS 10 (Catalina), Windows 11. (Any platform that supports Python 3.x and Jupyter Notebook)
 
 1.2 Software Dependencies
+
 All code is written in Python 3.10 and requires the following packages (with version numbers used in our tests):
 Package	Version:
 numpy	1.26.4,
@@ -20,6 +22,7 @@ jupyter	5.5.0,
 openpyxl	3.1.2.
 
 1.3 Hardware Requirements
+
 A standard computer with ≥ 32 GB RAM, ≥ 1T SSD hard drive, and ≥ 5 cores is sufficient for all analyses. For large datasets, 64 GB RAM is recommended.
 
 2. Installation Guide
@@ -39,9 +42,11 @@ On a normal desktop computer with a broadband internet connection, the entire in
 3. Demo
 
 3.1 Demo data
+
 A small simulated dataset is included in the demo_data (zip file). These files mimic the structure of real calcium traces and behavioral event logs.
 
 3.2 Instructions to Run on Demo Data
+
 (1) Launch Jupyter Notebook from the terminal.
 (2) Open any of the analysis notebooks (e.g., 2-ONOFF_classification_SocB_Any_session.ipynb).
 (3) Change the file paths at the top of the notebook to point to the demo data folder.
@@ -50,8 +55,6 @@ A small simulated dataset is included in the demo_data (zip file). These files m
 3.3 Expected output
 
 For each notebook, the expected outputs are:
-
-Notebook    Expected Output
 
 Notebook 1:	    Cleaned trace CSV (no "rejected" columns) saved in outputs
 
@@ -70,11 +73,13 @@ Notebook 9:	    Heatmap and averaged trace (.png) saved in figures
 All output files are written to the outputs and figures subdirectories.
 
 3.4 Expected Run Time for Demo
+
 On a computer (Intel i7, 64 GB RAM), running the entire demo pipeline from start to finish takes approximately 60 minutes (most notebooks complete in under 1 minute each; notebook 2 may take about 30-50 minutes to classify neurons; notebook 8 and 9 may take 1-2 minutes for plot generation).
 
 4. Instructions for Use 
 
 4.1 Data Preparation
+
 Calcium trace files: CSV files where each column is a neuron’s ΔF/F trace over time (one row per time point). Columns labelled "rejected" are automatically removed.
 Behavioral event files: Excel files (.xlsx) with columns: Event (string), From Second (float), To Second (float).
 
@@ -96,11 +101,14 @@ Notebook 9: produces heatmaps and averaged population traces.
 All scripts contain inline comments and markdown cells explaining each step. Parameter settings (paths, event types, session IDs) are concentrated at one part of each notebook for easy modification.
 
 6. License
+
 This project is distributed under the MIT License (an OSI-approved license). See the LICENSE file in the repository for full terms.
 
 7. Code Description in Manuscript
+
 A detailed pseudocode description of the core classification and overlap algorithms is provided in the Methods section of the manuscript (see subsection " Analysis of single cell responses during SBF test").
 
 8. Contact & Support
+
 For questions or issues, please contact the corresponding author at clamslowly@163.com.
 
