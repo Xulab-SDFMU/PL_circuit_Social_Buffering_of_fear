@@ -3,12 +3,13 @@ PL Neural Data Analysis Pipeline
 This repository provides a complete analysis pipeline for processing and analyzing neural calcium imaging data from the prelimbic cortex (PL) during behavioral experiments. The workflow includes data cleaning, functional ensemble classification, within- and across-session activity quantification, overlap analysis (observed vs. chance-level), and visualization.
 
 1. System Requirements
+
 1.1 Operating Systems 
 Tested on: macOS 10 (Catalina), Windows 11. (Any platform that supports Python 3.x and Jupyter Notebook)
 
 1.2 Software Dependencies
 All code is written in Python 3.10 and requires the following packages (with version numbers used in our tests):
-Package	Version
+Package	Version:
 numpy	1.26.4
 pandas	1.5.3
 matplotlib	3.5.3
